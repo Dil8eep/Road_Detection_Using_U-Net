@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Road Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Road Detection System</h1>
+        <p>Upload satellite imagery to detect road networks</p>
+    </header>
+    
+    <div class="container">
+        <div class="upload-box">
+            <form method="POST" action="/predict" enctype="multipart/form-data" id="uploadForm">
+                <div class="file-input">
+                    <label for="image">Choose Satellite Image</label>
+                    <input type="file" name="image" id="image" accept="image/*" required>
+                    <div class="preview" id="preview"></div>
+                </div>
+                <div class="button-group">
+                    <button type="submit" class="btn predict-btn">Detect Roads</button>
+                    <button type="button" class="btn clear-btn">Clear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('image').addEventListener('change', function(e) {
+            const preview = document.getElementById('preview');
+            preview.innerHTML = '';
+            
+            if (this.files && this.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    preview.appendChild(img);
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+
+        document.querySelector('.clear-btn').addEventListener('click', function() {
+            document.getElementById('image').value = '';
+            document.getElementById('preview').innerHTML = '';
+        });
+    </script>
+</body>
+</html>
