@@ -19,9 +19,6 @@ Segmentation evaluation using IoU & Dice Score
 
 Visual overlay analysis to validate predictions
 
-📂 Project Structure
-
-<img width="772" height="662" alt="image" src="https://github.com/user-attachments/assets/506ec5a3-529f-4aad-8bf8-43e65c77b3ca" />
 
 🧠 Model Architecture: U-Net
 
@@ -117,5 +114,4 @@ If you have questions or want to collaborate:
 
 Dileep Kumar
 Machine Learning & Deep Learning Enthusiast
-🔗 GitHub: Your GitHub profile link
-📧 Email: Your Email
+
